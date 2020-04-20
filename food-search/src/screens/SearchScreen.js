@@ -8,7 +8,6 @@ import ResultList from "../components/ResultList";
 const SearchScreen = () => {
   const [term, setTerm] = React.useState("");
   const [searchApi, results, errorMessage] = useResults();
-
   const filterResultsByPrice = (price) => {
     return results.filter((result) => {
       return result.price === price;
@@ -16,6 +15,7 @@ const SearchScreen = () => {
   };
 
   return (
+    // use fragment
     <>
       <SearchBar
         term={term}
@@ -23,7 +23,7 @@ const SearchScreen = () => {
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <ScrollView style={styles.sView}>
+      <ScrollView>
         <ResultList
           results={filterResultsByPrice("$")}
           title="Cost Effective"
@@ -37,13 +37,8 @@ const SearchScreen = () => {
 
 const styles = StyleSheet.create({
   main: {
-    // minHeight: "100%",
     backgroundColor: "white",
     flex: 1,
-    // marginLeft: 10,
-  },
-  sView: {
-    // marginBottom: 90,
   },
 });
 
