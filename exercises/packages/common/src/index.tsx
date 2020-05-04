@@ -1,0 +1,60 @@
+import React, { useState } from "react";
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+} from "react-native";
+
+declare const global: { HermesInternal: null | {} };
+
+export const App = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={styles.scrollView}
+        >
+          <View style={styles.body}>helllo</View>
+        </ScrollView>
+      </SafeAreaView>
+    </>
+  );
+};
+
+const styles = StyleSheet.create({
+  scrollView: {},
+  engine: {
+    position: "absolute",
+    right: 0,
+  },
+  body: {},
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: "600",
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: "400",
+  },
+  highlight: {
+    fontWeight: "700",
+  },
+  footer: {
+    fontSize: 12,
+    fontWeight: "600",
+    padding: 4,
+    paddingRight: 12,
+    textAlign: "right",
+  },
+});
